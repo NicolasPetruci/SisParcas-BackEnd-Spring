@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public interface BaseController<
-        D extends BaseDTO<ID>,
+        D extends BaseDTO,
         ID extends Serializable
         > {
 

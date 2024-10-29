@@ -3,6 +3,7 @@ package com.sisparcas.crud.controller.impl;
 import com.sisparcas.crud.controller.BaseController;
 import com.sisparcas.crud.dto.BaseDTO;
 import com.sisparcas.crud.service.BaseService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 public class BaseControllerImpl<
-        D extends BaseDTO<ID>,
+        D extends BaseDTO,
         ID extends Serializable>
         implements BaseController<D, ID> {
 
@@ -33,13 +34,13 @@ public class BaseControllerImpl<
 
     @PostMapping
     @Override
-    public ResponseEntity<D> create(@RequestBody D dto) {
+    public ResponseEntity<D> create(@Valid @RequestBody D dto) {
         return ResponseEntity.ok().body(_service.create(dto));
     }
 
     @PutMapping("/{id}")
     @Override
-    public ResponseEntity<D> update(@PathVariable ID id, @RequestBody D dto) {
+    public ResponseEntity<D> update(@PathVariable ID id, @Valid @RequestBody D dto) {
         return ResponseEntity.ok().body(_service.update(id, dto));
     }
 

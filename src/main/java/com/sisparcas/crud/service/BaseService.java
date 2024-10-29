@@ -5,7 +5,7 @@ import com.sisparcas.crud.dto.BaseDTO;
 import java.io.Serializable;
 import java.util.List;
 
-public interface BaseService<D extends BaseDTO<ID>, ID extends Serializable> {
+public interface BaseService<D extends BaseDTO, ID extends Serializable> {
 
     List<D> getAll();
     D getById(ID id);

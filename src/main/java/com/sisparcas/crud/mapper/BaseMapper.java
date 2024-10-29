@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface BaseMapper<T extends BaseModel<ID>,
                             ID extends Serializable,
-                            D extends BaseDTO<ID>
+                            D extends BaseDTO
                            > {
     D toDTO(T t);
     T toEntity(D dto);

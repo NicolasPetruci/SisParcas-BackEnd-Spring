@@ -4,6 +4,8 @@ import com.sisparcas.crud.dto.BaseDTO;
 import com.sisparcas.crud.mapper.BaseMapper;
 import com.sisparcas.crud.model.BaseModel;
 import com.sisparcas.crud.service.BaseService;
+import com.sisparcas.exception.model.NotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -15,7 +17,7 @@ import java.util.Optional;
 @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 public class BaseServiceImpl<
                              T extends BaseModel<ID>,
-                             D extends BaseDTO<ID>,
+                             D extends BaseDTO,
                              ID extends Serializable
                             > implements BaseService<D, ID> {
 
@@ -35,15 +37,17 @@ public class BaseServiceImpl<
     public D getById(ID id) {
         return this._mapper.toDTO(
                 this._repository.findById(id)
-                        .orElseThrow(RuntimeException::new)
+                        .orElseThrow(()->new NotFoundException("Objeto com id: "+id+" não encontrado"))
         );
     }
 
+    @Transactional
     @Override
     public void delete(ID id) {
         this._repository.deleteById(id);
     }
 
+    @Transactional
     @Override
     public D update(ID id, D dto) {
         Optional<T> entityOptional = this._repository.findById(id);
@@ -54,10 +58,11 @@ public class BaseServiceImpl<
                     this._repository.save(entity)
             );
         }
-        throw new RuntimeException("Objeto do tipo " + ((Class<T>) ((ParameterizedType) getClass()
+        throw new NotFoundException("Objeto do tipo " + ((Class<?>) ((ParameterizedType) getClass()
                 .getGenericSuperclass()).getActualTypeArguments()[0]).getTypeName() + " não encontrado");
     }
 
+    @Transactional
     @Override
     public D create(D dto) {
         T entity = this._mapper.toEntity(dto);
