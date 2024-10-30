@@ -1,10 +1,10 @@
-package com.sisparcas.cargo.dto;
+package com.sisparcas.presentation.dto;
 
 import com.sisparcas.crud.dto.BaseDTO;
 import lombok.Data;
 
 @Data
-public class CargoDTO implements BaseDTO<Long> {
+public class CargoDTO implements BaseDTO {
 
     private Long id;
 
