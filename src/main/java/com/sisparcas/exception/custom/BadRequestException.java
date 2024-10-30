@@ -1,4 +1,4 @@
-package com.sisparcas.exception.model;
+package com.sisparcas.exception.custom;
 
 public class BadRequestException extends RuntimeException {
     public BadRequestException(String message) {
