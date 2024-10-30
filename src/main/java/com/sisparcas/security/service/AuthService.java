@@ -1,6 +1,6 @@
 package com.sisparcas.security.service;
 
-import com.sisparcas.exception.model.NotFoundException;
+import com.sisparcas.exception.custom.NotFoundException;
 import com.sisparcas.infra.model.Usuario;
 import com.sisparcas.infra.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
