@@ -52,8 +52,8 @@ public class BaseServiceImpl<
     public D update(ID id, D dto) {
         Optional<T> entityOptional = this._repository.findById(id);
         if (entityOptional.isPresent()) {
-            T entity = this._mapper.toEntity(dto);
-            entity.setId(id);
+            T entity = entityOptional.get();
+            this._mapper.toEntityUpdate(dto, entity);
             return this._mapper.toDTO(
                     this._repository.save(entity)
             );

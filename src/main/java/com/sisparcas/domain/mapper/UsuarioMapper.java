@@ -14,15 +14,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 public abstract class UsuarioMapper implements BaseMapper<Usuario, Long, UsuarioDTO> {
 
     @Autowired
-    protected CargoMapper cargoMapper;
-
-    @Autowired
     protected SecurityConfig securityConfig;
 
     @Override
-    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     @Mapping(target = "senha", expression = "java(securityConfig.passwordEncoder().encode(usuarioDTO.getSenha()))")
-    @Mapping(target = "cargos", expression = "java(cargoMapper.toEntityList(usuarioDTO.getCargos()))")
     public abstract Usuario toEntity(UsuarioDTO usuarioDTO);
 
 }
