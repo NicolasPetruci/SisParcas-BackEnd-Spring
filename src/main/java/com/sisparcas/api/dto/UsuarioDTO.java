@@ -1,7 +1,6 @@
-package com.sisparcas.presentation.dto;
+package com.sisparcas.api.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sisparcas.crud.dto.BaseDTO;
+import com.sisparcas.common.crud.dto.BaseDTO;
 import lombok.Data;
 
 import java.time.LocalDate;

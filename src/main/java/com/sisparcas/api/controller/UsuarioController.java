@@ -1,7 +1,7 @@
-package com.sisparcas.presentation.controller;
+package com.sisparcas.api.controller;
 
-import com.sisparcas.crud.controller.impl.BaseControllerImpl;
-import com.sisparcas.presentation.dto.UsuarioDTO;
+import com.sisparcas.common.crud.controller.impl.BaseControllerImpl;
+import com.sisparcas.api.dto.UsuarioDTO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
