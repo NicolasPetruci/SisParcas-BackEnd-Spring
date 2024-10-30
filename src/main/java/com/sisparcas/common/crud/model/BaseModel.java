@@ -1,4 +1,4 @@
-package com.sisparcas.crud.model;
+package com.sisparcas.common.crud.model;
 
 import java.io.Serializable;
 

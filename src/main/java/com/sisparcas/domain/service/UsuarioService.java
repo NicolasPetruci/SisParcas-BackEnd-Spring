@@ -1,10 +1,10 @@
 package com.sisparcas.domain.service;
 
-import com.sisparcas.crud.service.impl.BaseServiceImpl;
-import com.sisparcas.exception.model.NotFoundException;
-import com.sisparcas.presentation.dto.UsuarioDTO;
+import com.sisparcas.common.crud.service.impl.BaseServiceImpl;
+import com.sisparcas.exception.custom.NotFoundException;
 import com.sisparcas.infra.model.Usuario;
 import com.sisparcas.infra.repository.UsuarioRepository;
+import com.sisparcas.api.dto.UsuarioDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

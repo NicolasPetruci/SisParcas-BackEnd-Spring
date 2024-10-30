@@ -1,6 +1,6 @@
-package com.sisparcas.crud.controller;
+package com.sisparcas.common.crud.controller;
 
-import com.sisparcas.crud.dto.BaseDTO;
+import com.sisparcas.common.crud.dto.BaseDTO;
 import org.springframework.http.ResponseEntity;
 
 import java.io.Serializable;

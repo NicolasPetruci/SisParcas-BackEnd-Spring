@@ -1,6 +1,6 @@
-package com.sisparcas.crud.service;
+package com.sisparcas.common.crud.service;
 
-import com.sisparcas.crud.dto.BaseDTO;
+import com.sisparcas.common.crud.dto.BaseDTO;
 
 import java.io.Serializable;
 import java.util.List;

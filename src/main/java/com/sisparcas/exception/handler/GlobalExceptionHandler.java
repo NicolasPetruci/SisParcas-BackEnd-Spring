@@ -1,7 +1,7 @@
 package com.sisparcas.exception.handler;
 
+import com.sisparcas.exception.custom.*;
 import com.sisparcas.exception.dto.ExceptionDTO;
-import com.sisparcas.exception.model.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

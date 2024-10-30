@@ -1,9 +1,12 @@
-package com.sisparcas.crud.mapper;
+package com.sisparcas.common.crud.mapper;
 
 
-import com.sisparcas.crud.dto.BaseDTO;
-import com.sisparcas.crud.model.BaseModel;
-import org.mapstruct.*;
+import com.sisparcas.common.crud.dto.BaseDTO;
+import com.sisparcas.common.crud.model.BaseModel;
+import org.mapstruct.BeanMapping;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValueCheckStrategy;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.io.Serializable;
 import java.util.List;

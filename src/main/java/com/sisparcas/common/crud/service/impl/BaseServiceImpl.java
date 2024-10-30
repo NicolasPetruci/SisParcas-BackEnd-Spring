@@ -1,10 +1,10 @@
-package com.sisparcas.crud.service.impl;
+package com.sisparcas.common.crud.service.impl;
 
-import com.sisparcas.crud.dto.BaseDTO;
-import com.sisparcas.crud.mapper.BaseMapper;
-import com.sisparcas.crud.model.BaseModel;
-import com.sisparcas.crud.service.BaseService;
-import com.sisparcas.exception.model.NotFoundException;
+import com.sisparcas.common.crud.dto.BaseDTO;
+import com.sisparcas.common.crud.mapper.BaseMapper;
+import com.sisparcas.common.crud.model.BaseModel;
+import com.sisparcas.common.crud.service.BaseService;
+import com.sisparcas.exception.custom.NotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;

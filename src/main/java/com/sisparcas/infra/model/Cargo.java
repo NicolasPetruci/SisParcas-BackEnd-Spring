@@ -1,7 +1,7 @@
 package com.sisparcas.infra.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.sisparcas.crud.model.BaseModel;
+import com.sisparcas.common.crud.model.BaseModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

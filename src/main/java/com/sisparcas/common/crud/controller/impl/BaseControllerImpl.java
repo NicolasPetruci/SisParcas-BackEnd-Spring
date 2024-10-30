@@ -1,8 +1,8 @@
-package com.sisparcas.crud.controller.impl;
+package com.sisparcas.common.crud.controller.impl;
 
-import com.sisparcas.crud.controller.BaseController;
-import com.sisparcas.crud.dto.BaseDTO;
-import com.sisparcas.crud.service.BaseService;
+import com.sisparcas.common.crud.controller.BaseController;
+import com.sisparcas.common.crud.dto.BaseDTO;
+import com.sisparcas.common.crud.service.BaseService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
