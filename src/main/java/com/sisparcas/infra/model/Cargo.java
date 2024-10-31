@@ -27,6 +27,11 @@ public class Cargo implements BaseModel<Long>, GrantedAuthority {
 
     @JsonIgnore
     @ManyToMany
+    @JoinTable(
+            name="usuario_cargo",
+            joinColumns = @JoinColumn(name="cargo_id"),
+            inverseJoinColumns = @JoinColumn(name = "usuario_id")
+    )
     private List<Usuario> usuarios;
 
     @Override

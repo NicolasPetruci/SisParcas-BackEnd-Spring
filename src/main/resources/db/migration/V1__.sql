@@ -1,0 +1,16 @@
+ALTER TABLE usuario
+    ALTER COLUMN email DROP NOT NULL;
+
+CREATE SEQUENCE IF NOT EXISTS evento_id_seq;
+ALTER TABLE evento
+    ALTER COLUMN id SET NOT NULL;
+ALTER TABLE evento
+    ALTER COLUMN id SET DEFAULT nextval('evento_id_seq');
+
+ALTER SEQUENCE evento_id_seq OWNED BY evento.id;
+
+ALTER TABLE usuario
+    ALTER COLUMN nome DROP NOT NULL;
+
+ALTER TABLE usuario
+    ALTER COLUMN senha DROP NOT NULL;

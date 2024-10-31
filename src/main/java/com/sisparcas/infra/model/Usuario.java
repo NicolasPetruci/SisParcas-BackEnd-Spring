@@ -49,6 +49,11 @@ public class Usuario implements BaseModel<Long>, UserDetails {
     private LocalDate aniversario;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name="usuario_cargo",
+            joinColumns = @JoinColumn(name="usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "cargo_id")
+    )
     private List<Cargo> cargos;
 
     @Override
