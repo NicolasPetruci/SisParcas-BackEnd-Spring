@@ -2,12 +2,10 @@ package com.sisparcas.api.controller;
 
 import com.sisparcas.api.dto.LoginDTO;
 import com.sisparcas.api.dto.TokenDTO;
-import com.sisparcas.api.dto.UsuarioDTO;
-import com.sisparcas.exception.custom.NotFoundException;
 import com.sisparcas.exception.custom.TokenValidationException;
 import com.sisparcas.infra.model.Usuario;
 import com.sisparcas.security.service.TokenService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -15,12 +13,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-    @Autowired
-    private TokenService tokenService;
+    private final AuthenticationManager authenticationManager;
+    private final TokenService tokenService;
 
 
     @PostMapping("/login")

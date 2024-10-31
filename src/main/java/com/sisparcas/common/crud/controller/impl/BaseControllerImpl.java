@@ -4,6 +4,7 @@ import com.sisparcas.common.crud.controller.BaseController;
 import com.sisparcas.common.crud.dto.BaseDTO;
 import com.sisparcas.common.crud.service.BaseService;
 import jakarta.validation.Valid;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,13 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import java.io.Serializable;
 import java.util.List;
 
-@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+@Setter(onMethod = @__(@Autowired))
 public class BaseControllerImpl<
         D extends BaseDTO,
         ID extends Serializable>
         implements BaseController<D, ID> {
 
-    @Autowired
     protected BaseService<D, ID> _service;
 
     @GetMapping

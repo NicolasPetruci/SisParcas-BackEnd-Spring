@@ -6,6 +6,7 @@ import com.sisparcas.common.crud.model.BaseModel;
 import com.sisparcas.common.crud.service.BaseService;
 import com.sisparcas.exception.custom.NotFoundException;
 import jakarta.transaction.Transactional;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -14,16 +15,16 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Optional;
 
-@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
+@Setter(onMethod_ = @__(@Autowired))
 public class BaseServiceImpl<
                              T extends BaseModel<ID>,
                              D extends BaseDTO,
                              ID extends Serializable
                             > implements BaseService<D, ID> {
 
-    @Autowired
+
     protected JpaRepository<T, ID> _repository;
-    @Autowired
+
     protected BaseMapper<T, ID, D> _mapper;
 
     @Override

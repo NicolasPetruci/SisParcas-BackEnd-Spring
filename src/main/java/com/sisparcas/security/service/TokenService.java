@@ -19,7 +19,7 @@ public class TokenService {
 
 
     private Instant expirationToken() {
-        return LocalDateTime.now().plusHours(8).toInstant(ZoneOffset.of("-03:00"));
+        return LocalDateTime.now().plusHours(24).toInstant(ZoneOffset.of("-03:00"));
     }
 
     public String generateToken(Usuario user) {
