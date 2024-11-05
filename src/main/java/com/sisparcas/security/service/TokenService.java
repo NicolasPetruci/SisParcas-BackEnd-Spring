@@ -29,6 +29,8 @@ public class TokenService {
                     .withIssuer("sisparcas")
                     .withSubject(user.getEmail())
                     .withExpiresAt(expirationToken())
+                    .withClaim("id", user.getId())
+                    .withClaim("cargos", user.getCargos().stream().map(c->c.getDescricao().toUpperCase()).toList())
                     .sign(algorithm);
         } catch (JWTCreationException e) {
             throw new RuntimeException("Erro ao gerar o token: " + e.getMessage());
