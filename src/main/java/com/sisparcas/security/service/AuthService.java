@@ -4,6 +4,8 @@ import com.sisparcas.exception.custom.NotFoundException;
 import com.sisparcas.infra.model.Usuario;
 import com.sisparcas.infra.repository.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
@@ -24,5 +26,15 @@ public class AuthService implements UserDetailsService {
             return user.get();
         }
         throw new NotFoundException(username);
+    }
+
+    public Usuario getLoggedUser() {
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if(authentication != null) {
+            Usuario usuario = (Usuario) authentication.getPrincipal();
+            return usuario;
+        }
+        throw new IllegalArgumentException("Usuario não está logado");
     }
 }
