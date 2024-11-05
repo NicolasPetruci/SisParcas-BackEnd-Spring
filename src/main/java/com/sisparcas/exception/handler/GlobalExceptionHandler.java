@@ -2,6 +2,7 @@ package com.sisparcas.exception.handler;
 
 import com.sisparcas.exception.custom.*;
 import com.sisparcas.exception.dto.ExceptionDTO;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -53,16 +54,16 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(TokenValidationException.class)
     public ResponseEntity<ExceptionDTO> tokenValidation(TokenValidationException e){
 
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                new ExceptionDTO(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage())
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(
+                new ExceptionDTO(HttpStatus.FORBIDDEN.value(), e.getMessage())
         );
     }
 
     @ExceptionHandler(TokenGenerationException.class)
     public ResponseEntity<ExceptionDTO> tokenGeneration(TokenGenerationException e){
 
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(
-                new ExceptionDTO(HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage())
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+                new ExceptionDTO(HttpStatus.BAD_REQUEST.value(), e.getMessage())
         );
     }
 
