@@ -23,7 +23,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(of={"id"})
 @Entity
 @Table
 public class Usuario implements BaseModel<Long>, UserDetails {

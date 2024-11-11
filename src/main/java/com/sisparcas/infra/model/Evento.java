@@ -2,18 +2,15 @@ package com.sisparcas.infra.model;
 
 import com.sisparcas.common.crud.model.BaseModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
+@EqualsAndHashCode(of={"id"})
 @Entity
 @Table
 public class Evento implements BaseModel<Long> {
