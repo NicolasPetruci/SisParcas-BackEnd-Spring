@@ -16,4 +16,5 @@ public class UsuarioDTO implements BaseDTO {
     private LocalDate aniversario;
     private String senha;
     private List<CargoDTO> cargos;
+    private List<InteresseDTO> interesses;
 }

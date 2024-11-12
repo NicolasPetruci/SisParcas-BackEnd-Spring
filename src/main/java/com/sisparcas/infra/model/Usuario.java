@@ -58,6 +58,14 @@ public class Usuario implements BaseModel<Long>, UserDetails {
     )
     private List<Cargo> cargos;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name="usuario_interesse",
+            joinColumns = @JoinColumn(name="id_usuario"),
+            inverseJoinColumns = @JoinColumn(name = "id_interesse")
+    )
+    private List<Interesse> interesses;
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return getCargos();
