@@ -20,7 +20,6 @@ public class AuthService implements UserDetailsService {
 
 
     private final UsuarioRepository usuarioRepository;
-    private final UsuarioMapper usuarioMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
@@ -39,10 +38,6 @@ public class AuthService implements UserDetailsService {
             return usuario;
         }
         throw new IllegalArgumentException("Usuario não está logado");
-    }
-
-    public UsuarioDTO buscarUsuarioLogado(){
-        return usuarioMapper.toDTO(getLoggedUser());
     }
 
 }

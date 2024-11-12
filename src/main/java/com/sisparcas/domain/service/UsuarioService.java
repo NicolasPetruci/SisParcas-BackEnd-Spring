@@ -5,12 +5,23 @@ import com.sisparcas.common.crud.service.impl.BaseServiceImpl;
 import com.sisparcas.exception.custom.NotFoundException;
 import com.sisparcas.infra.model.Usuario;
 import com.sisparcas.infra.repository.UsuarioRepository;
+import com.sisparcas.security.service.AuthService;
+import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Setter(onMethod_ = @__(@Autowired))
 @Service
 public class UsuarioService extends BaseServiceImpl<Usuario, UsuarioDTO, Long> {
+
+    private AuthService authService;
+
+    public UsuarioService(AuthService authService) {
+        super();
+        this.authService = authService;
+    }
 
     public UsuarioDTO findByEmail(String email) {
         Optional<Usuario> optionalUsuario = ((UsuarioRepository) _repository).findByEmail(email);
@@ -18,6 +29,11 @@ public class UsuarioService extends BaseServiceImpl<Usuario, UsuarioDTO, Long> {
             return _mapper.toDTO(optionalUsuario.get());
         }
         throw new NotFoundException("Usuario com email " + email + " não encontrado.");
+    }
+
+
+    public UsuarioDTO buscarUsuarioLogado(){
+        return _mapper.toDTO(authService.getLoggedUser());
     }
 
     @Override

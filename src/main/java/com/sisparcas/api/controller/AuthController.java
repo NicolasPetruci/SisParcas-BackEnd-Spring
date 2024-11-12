@@ -3,9 +3,9 @@ package com.sisparcas.api.controller;
 import com.sisparcas.api.dto.LoginDTO;
 import com.sisparcas.api.dto.TokenDTO;
 import com.sisparcas.api.dto.UsuarioDTO;
+import com.sisparcas.domain.service.UsuarioService;
 import com.sisparcas.exception.custom.TokenValidationException;
 import com.sisparcas.infra.model.Usuario;
-import com.sisparcas.security.service.AuthService;
 import com.sisparcas.security.service.TokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +20,7 @@ public class AuthController {
 
     private final AuthenticationManager authenticationManager;
     private final TokenService tokenService;
-    private final AuthService authService;
+    private final UsuarioService usuarioService;
 
 
     @PostMapping("/login")
@@ -37,7 +37,7 @@ public class AuthController {
 
     @GetMapping("/login")
     public ResponseEntity<UsuarioDTO> buscarUsuariLogado(){
-        return ResponseEntity.ok(authService.buscarUsuarioLogado());
+        return ResponseEntity.ok(usuarioService.buscarUsuarioLogado());
     }
 
     @GetMapping({"/token"})
