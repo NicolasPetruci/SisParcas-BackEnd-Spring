@@ -1,9 +1,12 @@
 package com.sisparcas.common.converter;
 
+import org.springframework.stereotype.Component;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+@Component
 public class LocalDateConverter {
 
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
