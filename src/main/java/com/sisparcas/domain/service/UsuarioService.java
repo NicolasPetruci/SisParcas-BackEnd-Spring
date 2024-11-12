@@ -1,7 +1,9 @@
 package com.sisparcas.domain.service;
 
+import com.sisparcas.api.dto.CargoDTO;
 import com.sisparcas.api.dto.UsuarioDTO;
 import com.sisparcas.common.crud.service.impl.BaseServiceImpl;
+import com.sisparcas.domain.mapper.CargoMapper;
 import com.sisparcas.exception.custom.NotFoundException;
 import com.sisparcas.infra.model.Usuario;
 import com.sisparcas.infra.repository.UsuarioRepository;
@@ -18,6 +20,7 @@ import java.util.Optional;
 public class UsuarioService extends BaseServiceImpl<Usuario, UsuarioDTO, Long> {
 
     private AuthService authService;
+    private CargoMapper cargoMapper;
 
     public UsuarioService(AuthService authService) {
         super();
@@ -37,9 +40,9 @@ public class UsuarioService extends BaseServiceImpl<Usuario, UsuarioDTO, Long> {
         return _mapper.toDTO(authService.getLoggedUser());
     }
 
-    public List<String> buscarCargosUsuarioLogado(){
+    public List<CargoDTO> buscarCargosUsuarioLogado(){
         Usuario usuario = authService.getLoggedUser();
-        return usuario.getCargos().stream().map(c->c.getDescricao().toUpperCase()).toList();
+        return cargoMapper.toDTOList(usuario.getCargos());
     }
 
     @Override
