@@ -44,7 +44,7 @@ public class AuthController {
     }
 
     @GetMapping("/cargos")
-    public ResponseEntity<List<CargoDTO>> buscarCargosUsuarioLogado(){
+    public ResponseEntity<List<String>> buscarCargosUsuarioLogado(){
         return ResponseEntity.ok(usuarioService.buscarCargosUsuarioLogado());
     }
 
