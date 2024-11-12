@@ -27,7 +27,7 @@ public class SecurityConfig {
     private final AuthFilter authFilter;
 
 
-    private final String APPLICATION_URL = "127.0.0.1:3000";
+    private final String APPLICATION_URL = "127.0.0.1:5555";
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
