@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.sisparcas.exception.custom.TokenGenerationException;
 import com.sisparcas.exception.custom.TokenValidationException;
 import com.sisparcas.infra.model.Usuario;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class TokenService {
 
 
     private Instant expirationToken() {
-        return LocalDateTime.now().plusHours(24).toInstant(ZoneOffset.of("-03:00"));
+        return LocalDateTime.now().plusHours(96).toInstant(ZoneOffset.of("-03:00"));
     }
 
     public String generateToken(Usuario user) {
@@ -33,7 +34,7 @@ public class TokenService {
                     .withClaim("cargos", user.getCargos().stream().map(c->c.getDescricao().toUpperCase()).toList())
                     .sign(algorithm);
         } catch (JWTCreationException e) {
-            throw new RuntimeException("Erro ao gerar o token: " + e.getMessage());
+            throw new TokenGenerationException("Erro ao gerar o token: " + e.getMessage());
         }
     }
 

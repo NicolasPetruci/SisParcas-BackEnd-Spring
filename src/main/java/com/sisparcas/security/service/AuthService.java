@@ -1,5 +1,7 @@
 package com.sisparcas.security.service;
 
+import com.sisparcas.api.dto.UsuarioDTO;
+import com.sisparcas.domain.mapper.UsuarioMapper;
 import com.sisparcas.exception.custom.NotFoundException;
 import com.sisparcas.infra.model.Usuario;
 import com.sisparcas.infra.repository.UsuarioRepository;
@@ -18,6 +20,7 @@ public class AuthService implements UserDetailsService {
 
 
     private final UsuarioRepository usuarioRepository;
+    private final UsuarioMapper usuarioMapper;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
@@ -37,4 +40,9 @@ public class AuthService implements UserDetailsService {
         }
         throw new IllegalArgumentException("Usuario não está logado");
     }
+
+    public UsuarioDTO buscarUsuarioLogado(){
+        return usuarioMapper.toDTO(getLoggedUser());
+    }
+
 }
