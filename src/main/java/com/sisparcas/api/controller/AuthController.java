@@ -13,6 +13,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -39,6 +41,12 @@ public class AuthController {
     public ResponseEntity<UsuarioDTO> buscarUsuariLogado(){
         return ResponseEntity.ok(usuarioService.buscarUsuarioLogado());
     }
+
+    @GetMapping("/cargos")
+    public ResponseEntity<List<String>> buscarCargosUsuarioLogado(){
+        return ResponseEntity.ok(usuarioService.buscarCargosUsuarioLogado());
+    }
+
 
     @GetMapping({"/token"})
     public ResponseEntity<Void> validateToken(@RequestBody TokenDTO data) {

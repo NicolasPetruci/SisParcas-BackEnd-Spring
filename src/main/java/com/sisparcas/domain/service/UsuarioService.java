@@ -10,6 +10,7 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Setter(onMethod_ = @__(@Autowired))
@@ -34,6 +35,11 @@ public class UsuarioService extends BaseServiceImpl<Usuario, UsuarioDTO, Long> {
 
     public UsuarioDTO buscarUsuarioLogado(){
         return _mapper.toDTO(authService.getLoggedUser());
+    }
+
+    public List<String> buscarCargosUsuarioLogado(){
+        Usuario usuario = authService.getLoggedUser();
+        return usuario.getCargos().stream().map(c->c.getDescricao().toUpperCase()).toList();
     }
 
     @Override
