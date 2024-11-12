@@ -1,7 +1,5 @@
 package com.sisparcas.security.service;
 
-import com.sisparcas.api.dto.UsuarioDTO;
-import com.sisparcas.domain.mapper.UsuarioMapper;
 import com.sisparcas.exception.custom.NotFoundException;
 import com.sisparcas.infra.model.Usuario;
 import com.sisparcas.infra.repository.UsuarioRepository;

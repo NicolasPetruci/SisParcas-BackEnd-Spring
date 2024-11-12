@@ -1,6 +1,5 @@
 package com.sisparcas.api.controller;
 
-import com.sisparcas.api.dto.CargoDTO;
 import com.sisparcas.api.dto.LoginDTO;
 import com.sisparcas.api.dto.TokenDTO;
 import com.sisparcas.api.dto.UsuarioDTO;
