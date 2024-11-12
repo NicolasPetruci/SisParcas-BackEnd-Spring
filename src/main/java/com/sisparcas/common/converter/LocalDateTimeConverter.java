@@ -9,7 +9,7 @@ import java.time.format.DateTimeParseException;
 @Component
 public class LocalDateTimeConverter {
 
-    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy, HH:mm");
 
     public String asString(LocalDateTime date) {
         return date != null ? date.format(dateFormatter) : null;
