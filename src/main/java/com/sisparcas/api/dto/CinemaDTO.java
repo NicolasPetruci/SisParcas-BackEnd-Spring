@@ -16,6 +16,8 @@ public class CinemaDTO implements BaseDTO {
 
     private Long id;
 
+    private String nome;
+
     private String dataHora;
 
     private List<FilmeDTO> filmesSorteio;
